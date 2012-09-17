@@ -4,13 +4,36 @@
 	<title>Steamboat Dietary Designs</title>
 	<style type="text/css">
   body {
-    background: #DDD url('../images/bg.png') top right;
+    background: #666;
+    font: courier sans-serif;
     /* background-size: 100% 100%; */
     color: #eee;
   }
 
+  #bg_shade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  #container {
+    width: 1020px;
+    margin: auto;
+  }
+
+  #header {
+    background: #ccc;
+    border: #333;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+
   #logo {
-    width: 250px;
+    display: inline;
+    width: 60px;
+    margin-left: 40px;
   }
 
   #logo2 {
@@ -22,38 +45,38 @@
 
   #nav {
     position: relative;
+    top: -5px;
     display: inline;
+    text-align: center;
     list-style-type: none;
-    font-size: 28pt;
-    top: -30px;
+    font-size: 17pt;
   }
 
   #nav li {
     display: inline;
-    padding: 15px;
+    padding: 5px 15px;
+    border-right: 1px solid #eee;
   }
 
   #nav li a,
   #nav li a:hover {
-    color: #fff;
-    text-shadow: 3px 4px 4px rgba(0, 0, 0, 0.4);
+    color: #333;
     text-decoration: none;
   }
 
   #nav li a:hover {
-    text-shadow: 6px 7px 6px rgba(0, 0, 0, 0.4);
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
   }
 
   #lightbox {
-    position: relative;
+    top: 200px;
     margin: 35px auto;
-    width: 90%;
+    width: 98%;
     height: 500px;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.6);
     padding: 4px;
   }
 
@@ -65,78 +88,113 @@
 
   #lightbox img {
     width: 100%;
-    margin-top: -100px;
+    margin-top: -6px;
   }
 
   #services {
-    text-align: center;
+    display: block;
+    height: 220px;
+    margin-left: 4px;
+    overflow: auto;
   }
 
   #services .service {
-    display: inline;
+    float: left;
     height: 200px;
-    width: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    width: 312px;
+    /* border: 1px solid rgba(0, 0, 0, 0.4); */
     border-radius: 3px;
-    padding: 10px;
-    margin: 10px;
+    padding: 5px;
+    margin-right: 22px;
+    text-align: center;
   }
 
-  #services .service img {
-    height: 150px;
-    zoom: 1;
+  #services .service_last {
+    float: left;
+    height: 200px;
+    width: 312px;
+    /* border: 1px solid rgba(0, 0, 0, 0.4); */
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  #services .service img,
+  #services .service_last img {
+    height: 175px;
+    padding-bottom: 10px;
+    margin: auto;
+    display: block;
+  }
+
+  #footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 11px;
   }
 
 	</style>
 </head>
 <body>
-  <h1 style="display: none;">Dietary Designs</h1>
-  <img id="logo" src="../images/dd_logo.png" alt="Dietary Designs" />
   <img id="logo2" src="../images/dd_logo.png" alt="Dietary Designs" />
-  <ul id="nav">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/testimonials">Testimonials</a></li>
-    <li><a href="/whyrd">Why an RD?</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/blog">Blog</a></li>
-  </ul>
-  <div id="lightbox">
-    <div>
-      <img src="../images/shutterstock_44243356.jpg" alt="Shutterstock 44243356" />
-      <img src="../images/423508_4376844616101_203686347_n.jpg" alt="423508 4376844616101 203686347 N" style="display: none;"/>
+  <div id="container">
+    <div id="header">
+      <h1 style="display: none;">Dietary Designs</h1>
+      <img id="logo" src="../images/dd_logo.png" alt="Dietary Designs" />
+      <ul id="nav">
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/testimonials">Testimonials</a></li>
+        <li><a href="/whyrd">Why an RD?</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
     </div>
-  </div>
-  <script>
-    var lightbox = document.getElementById('lightbox');
-    var imgs = lightbox.getElementsByTagName('img');
-    function rotateImage() {
-      for (var i=0; i<imgs.length; i++) {
-        var img = imgs[i];
-        if (img.style.display == "none") {
-          img.style.display = "";
-        } else {
-          img.style.display = "none";
+    <div id="lightbox">
+      <div class="right"></div>
+      <div class="left"></div>
+      <div>
+        <img src="../images/shutterstock_44243356.jpg" alt="Shutterstock 44243356" />
+        <img src="../images/423508_4376844616101_203686347_n.jpg" alt="423508 4376844616101 203686347 N" style="display: none;"/>
+      </div>
+    </div>
+    <script>
+      var lightbox = document.getElementById('lightbox');
+      var imgs = lightbox.getElementsByTagName('img');
+      function rotateImage() {
+        for (var i=0; i<imgs.length; i++) {
+          var img = imgs[i];
+          if (img.style.display == "none") {
+            img.style.display = "";
+          } else {
+            img.style.display = "none";
+          }
         }
       }
-    }
-    setInterval(rotateImage, 5000);
-  </script>
-  <div id="services">
-    <h2>Services offered</h2>
-    <div>
-      <div id="bc" class="service">
-        <img src="../images/shutterstock_81980674.jpg" alt="Shutterstock 81980674" />
-        Body Composition
+      setInterval(rotateImage, 5000);
+    </script>
+    <div id="services">
+      <div>
+        <div id="bc" class="service">
+          <img src="../images/shutterstock_72929473.jpg" alt="Shutterstock 81980674" />
+          Body Composition
+        </div>
+        <div id="mt" class="service">
+          <img src="../images/shutterstock_76091386.jpg" alt="Shutterstock 81980674" />
+          Metabolic Testing
+        </div>
+        <div id="bc" class="service_last">
+          <img src="../images/shutterstock_81980674.jpg" alt="Shutterstock 81980674" />
+          Nutrition Counseling
+        </div>
       </div>
-      <div id="mt" class="service">
-        <img src="../images/shutterstock_81980674.jpg" alt="Shutterstock 81980674" />
-        Metabolic Testing
-      </div>
-      <div id="bc" class="service">
-        <img src="../images/shutterstock_81980674.jpg" alt="Shutterstock 81980674" />
-        Nutrition Counseling
-      </div>
+    </div>
+    <div id="footer">
+      Dietary Designs, Inc.
+      &nbsp;&mdash;&nbsp;
+      1104 Lincoln Ave. Suite #108, Steamboat Springs, CO
+      &nbsp;&mdash;&nbsp;
+      (303) 917-3175
     </div>
   </div>
 </body>
