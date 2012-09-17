@@ -10,6 +10,28 @@
     color: #eee;
   }
 
+  #title {
+    top: 0;
+    left: 0;
+    right: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: right;
+    height: 300px;
+    position: absolute;
+    border-radius: 10px 0px 0px 0px;
+  }
+
+  #nav {
+    top: 0;
+    left: 50%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: left;
+    height: 300px;
+    position: absolute;
+    border-radius: 0px 10px 0px 0px;
+  }
+
   #bg_shade {
     position: fixed;
     top: 0;
@@ -19,21 +41,19 @@
   }
 
   #container {
+    position: relative;
     width: 1020px;
     margin: auto;
   }
 
   #header {
-    background: #ccc;
-    border: #333;
-    border-radius: 10px;
-    margin-top: 30px;
+    height: 300px;
   }
 
   #logo {
-    display: inline;
-    width: 60px;
-    margin-left: 40px;
+    margin-right: 50px;
+    width: 342px;
+    margin-top: 50px;
   }
 
   #logo2 {
@@ -43,84 +63,65 @@
     right: -242px;
   }
 
-  #nav {
+  #nav ul {
     position: relative;
-    top: -5px;
-    display: inline;
-    text-align: center;
+    top: 15px;
+    text-align: left;
     list-style-type: none;
     font-size: 17pt;
   }
 
-  #nav li {
-    display: inline;
+  #nav ul li {
+    display: block;
     padding: 5px 15px;
-    border-right: 1px solid #eee;
   }
 
-  #nav li a,
-  #nav li a:hover {
+  #nav ul li a,
+  #nav ul li a:hover {
     color: #333;
     text-decoration: none;
   }
 
-  #nav li a:hover {
-    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+  #nav ul li a:hover {
+    color: #999;
   }
 
   #lightbox {
-    top: 200px;
-    margin: 35px auto;
-    width: 98%;
-    height: 500px;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 4px;
-  }
-
-  #lightbox div {
     position: relative;
-    width: 80%;
-    margin: 0 auto;
+    margin: auto;
+    width: 100%;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: none;
+    border-bottom: none;
+    overflow: hidden;
   }
 
   #lightbox img {
     width: 100%;
-    margin-top: -6px;
+    margin-top: -20px;
   }
 
   #services {
-    display: block;
-    height: 220px;
-    margin-left: 4px;
-    overflow: auto;
+    position: relative;
+    height: 250px;
+    border-radius: 0px 0px 10px 10px;
+    background: rgba(0, 0, 0, 0.4);
   }
 
   #services .service {
     float: left;
+    margin-top: 30px;
     height: 200px;
-    width: 312px;
-    /* border: 1px solid rgba(0, 0, 0, 0.4); */
-    border-radius: 3px;
-    padding: 5px;
-    margin-right: 22px;
+    width: 33%;
     text-align: center;
   }
 
-  #services .service_last {
-    float: left;
-    height: 200px;
-    width: 312px;
-    /* border: 1px solid rgba(0, 0, 0, 0.4); */
-    border-radius: 3px;
-    padding: 5px;
-    text-align: center;
+  #services .service.wide {
+    width: 34%; 
   }
 
-  #services .service img,
-  #services .service_last img {
+  #services .service img {
     height: 175px;
     padding-bottom: 10px;
     margin: auto;
@@ -139,23 +140,27 @@
   <img id="logo2" src="../images/dd_logo.png" alt="Dietary Designs" />
   <div id="container">
     <div id="header">
-      <h1 style="display: none;">Dietary Designs</h1>
-      <img id="logo" src="../images/dd_logo.png" alt="Dietary Designs" />
-      <ul id="nav">
-        <li><a href="/services">Services</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/testimonials">Testimonials</a></li>
-        <li><a href="/whyrd">Why an RD?</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
+      <div id="title">
+        <h1 style="display: none;">Dietary Designs</h1>
+        <img id="logo" src="../images/dd_logo.png" alt="Dietary Designs" />
+      </div>
+      <div id="nav">
+        <ul>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/testimonials">Testimonials</a></li>
+          <li><a href="/whyrd">Why an RD?</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
     </div>
     <div id="lightbox">
       <div class="right"></div>
       <div class="left"></div>
       <div>
-        <img src="../images/shutterstock_44243356.jpg" alt="Shutterstock 44243356" />
-        <img src="../images/423508_4376844616101_203686347_n.jpg" alt="423508 4376844616101 203686347 N" style="display: none;"/>
+        <img src="../images/shutterstock_44243356.jpg" alt="" />
+        <img src="../images/423508_4376844616101_203686347_n.jpg" alt="" style="display: none;" />
       </div>
     </div>
     <script>
@@ -176,16 +181,16 @@
     <div id="services">
       <div>
         <div id="bc" class="service">
-          <img src="../images/shutterstock_72929473.jpg" alt="Shutterstock 81980674" />
           Body Composition
+          <img src="../images/shutterstock_72929473.jpg" alt="" />
         </div>
-        <div id="mt" class="service">
-          <img src="../images/shutterstock_76091386.jpg" alt="Shutterstock 81980674" />
+        <div id="mt" class="service wide">
           Metabolic Testing
+          <img src="../images/shutterstock_76091386.jpg" alt="" />
         </div>
-        <div id="bc" class="service_last">
-          <img src="../images/shutterstock_81980674.jpg" alt="Shutterstock 81980674" />
+        <div id="bc" class="service">
           Nutrition Counseling
+          <img src="../images/shutterstock_81980674.jpg" alt="" />
         </div>
       </div>
     </div>
